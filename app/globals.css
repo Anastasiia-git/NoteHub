@@ -9,4 +9,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-roboto), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

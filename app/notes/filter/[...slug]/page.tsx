@@ -3,17 +3,48 @@ import {
   dehydrate,
   HydrationBoundary,
 } from "@tanstack/react-query";
+import type { Metadata } from "next";
 import { fetchNotes } from "@/lib/api";
 import NotesFilteredClient from "./Notes.client";
 
 type Props = {
-  params: Promise<{ slug: string[] }>;
+  params: { slug?: string[] };
 };
 
-export default async function FilteredNotesPage({ params }: Props) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const filter = params.slug?.[0] ?? "all";
+  const filterLabel =
+    filter === "all"
+      ? "All notes"
+      : `${filter.charAt(0).toUpperCase()}${filter.slice(1)} notes`;
 
-  const filter = slug?.[0] ?? "all";
+  const title = `Notes — ${filterLabel} | NoteHub`;
+  const description =
+    filter === "all"
+      ? "Browse all notes in NoteHub. Use filters and search to quickly find what you need."
+      : `Browse ${filterLabel.toLowerCase()} in NoteHub. Use search to quickly find notes by keyword.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://08-zustand-one-henna.vercel.app/notes/filter/${filter}`,
+      images: [
+        {
+          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          width: 1200,
+          height: 630,
+          alt: `NoteHub — ${filterLabel}`,
+        },
+      ],
+    },
+  };
+}
+
+export default async function FilteredNotesPage({ params }: Props) {
+  const filter = params.slug?.[0] ?? "all";
   const tag = filter === "all" ? undefined : filter;
 
   const queryClient = new QueryClient();
@@ -29,5 +60,3 @@ export default async function FilteredNotesPage({ params }: Props) {
     </HydrationBoundary>
   );
 }
-
-//----------
