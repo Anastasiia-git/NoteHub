@@ -1,0 +1,43 @@
+:global(body) {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #6f7ddf 0%, #37b8aa 100%);
+  color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  padding: clamp(28px, 5vw, 68px) clamp(18px, 4vw, 44px);
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vw, 28px);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+
+  text-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.description {
+  margin: 0;
+
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+
+  padding: clamp(16px, 2.6vw, 22px);
+
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
+}

@@ -1,0 +1,12 @@
+html {
+  background: linear-gradient(90deg, #6f7ddf 0%, #37b8aa 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
