@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `https://08-zustand-one-henna.vercel.app/notes/filter/${filter}`,
+      url: `https://note-hub-drab.vercel.app/notes/filter/${filter}`,
       images: [
         {
           url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -44,7 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function FilteredNotesPage({ params }: Props) {
-  const filter = params.slug?.[0] ?? "all";
+  const { slug } = await params;
+
+  const filter = slug?.[0] ?? "all";
   const tag = filter === "all" ? undefined : filter;
 
   const queryClient = new QueryClient();

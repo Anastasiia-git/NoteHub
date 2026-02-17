@@ -3,7 +3,7 @@
 > A clean, fast and elegant note-taking app to organize your ideas and stay productive.
 
 🌐 **Live Demo:**  
-https://08-zustand-one-henna.vercel.app/
+https://note-hub-drab.vercel.app/
 
 🖼 **Preview:**  
 https://ac.goit.global/fullstack/react/notehub-og-meta.jpg

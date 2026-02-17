@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "This page does not exist. The link may be broken or the page has been removed.",
 
-  metadataBase: new URL("https://08-zustand-one-henna.vercel.app/"),
+  metadataBase: new URL("https://note-hub-drab.vercel.app/"),
 
   alternates: {
     canonical: "/404",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "404 — Page Not Found",
     description:
       "The page you are looking for does not exist or may have been moved.",
-    url: "https://08-zustand-one-henna.vercel.app/",
+    url: "https://note-hub-drab.vercel.app/",
 
     images: [
       {

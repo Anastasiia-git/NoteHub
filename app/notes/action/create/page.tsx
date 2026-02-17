@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Create a new note quickly and easily using the note creation form.",
 
-    url: "https://08-zustand-one-henna.vercel.app/notes/action/create",
+    url: "https://note-hub-drab.vercel.app/notes/action/create",
 
     siteName: "NoteHub",
 
