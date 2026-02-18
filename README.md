@@ -1,16 +1,22 @@
-# 🚀 NoteHub — Modern Note Manager
+🚀 NoteHub — Modern Note Manager
 
-> A clean, fast and elegant note-taking app to organize your ideas and stay productive.
+A clean, fast and elegant note-taking app to organize your ideas and stay productive.
 
 🌐 **Live Demo:**  
 https://note-hub-drab.vercel.app/
 
-🖼 **Preview:**  
-https://ac.goit.global/fullstack/react/notehub-og-meta.jpg
+📸 Screenshots
 
----
+🏠 Home Page
+![Home](screenshots/home.png)
 
-## ✨ Highlights
+🔎 Notes Page
+![Search](screenshots/notes.png)
+
+🎥 Create Page
+![Details](screenshots/create.png)
+
+✨ Highlights
 
 ✔ Lightning-fast UI  
 ✔ Auto-saving drafts  
@@ -19,9 +25,7 @@ https://ac.goit.global/fullstack/react/notehub-og-meta.jpg
 ✔ Server + Client architecture  
 ✔ Optimized data fetching
 
----
-
-## 🧩 Features
+🧩 Features
 
 - 📝 Create notes with title, content, and tag
 - 🏷 Tag filtering system
@@ -34,9 +38,7 @@ https://ac.goit.global/fullstack/react/notehub-og-meta.jpg
 - 📱 Responsive design
 - 🌐 SEO + Social preview metadata
 
----
-
-## 🧠 Draft Autosave System
+🧠 Draft Autosave System
 
 NoteHub never lets you lose work.
 Every keystroke updates global state:
@@ -49,17 +51,8 @@ Flow:
 3. Cancel → draft kept
 4. Submit → draft cleared
 
-Initial draft:
-
-```ts
-const initialDraft = {
-  title: "",
-  content: "",
-  tag: "Todo",
-};
-```
-
 ⚙️ Tech Stack
+
 Technology Purpose
 Next.js App Router Framework
 TypeScript Type safety
@@ -88,29 +81,29 @@ app/
 └─ notes/
 ├─ page.tsx
 └─ action/create/page.tsx
-
 components/
 ├─ NoteForm
 └─ NoteList
-
 lib/
 ├─ api
 └─ store
-
 types/
 
-🛠 Installation
+🚀 Getting Started
+
+Clone project
+git clone https://github.com/Anastasiia-git/NoteHub.git
+cd movie-explorer
+Install dependencies
 npm install
+Run locally
 npm run dev
 
-🏗 Production Build
-npm run build
-npm start
+🔑 Environment Variables
 
-🌍 Environment Variables
-
-Create .env.local
-NEXT_PUBLIC_API_URL=your_api_url
+Create .env file in root:
+VITE_API_KEY=your_api_key_here
+⚠️ Never commit API keys.
 
 🛣 Roadmap
 
@@ -122,10 +115,17 @@ NEXT_PUBLIC_API_URL=your_api_url
 - 📊 Metadata Support
 
 Includes full social preview support:
+
 OpenGraph tags
 Twitter card
 Preview image
 SEO title + description
 
+👨‍💻 Author
+
+Anastasiia Totska
+GitHub → https://github.com/Anastasiia-git
+
 📄 License
-Educational project.
+
+Educational project — free to use for learning purposes.
