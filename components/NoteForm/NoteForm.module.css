@@ -2,7 +2,7 @@
   background: rgba(255, 255, 255, 0.244);
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 24px;
+  border-radius: 8px;
   padding: 28px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 
@@ -29,7 +29,7 @@
 
   background: rgba(255, 255, 255, 0.69);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
+  border-radius: 8px;
 
   font-size: 18px;
   color: rgba(0, 0, 0, 0.894);
@@ -91,14 +91,14 @@
 
 .cancelButton,
 .submitButton {
-  height: clamp(38px, 4.4vw, 44px);
-  padding: 0 clamp(16px, 3vw, 22px);
+  height: 44px;
+  padding: 0 22px;
 
-  border-radius: 15px;
+  border-radius: 8px;
   border: 1px solid #2563eb;
   background: #2564ebd3;
 
-  font-size: clamp(14px, 1.7vw, 15.5px);
+  font-size: 15px;
   font-weight: 600;
   color: #fff;
 
@@ -161,4 +161,19 @@
   margin-top: 6px;
   font-weight: 600;
   color: #b91c1c;
+}
+
+@media (max-width: 520px) {
+  .form {
+    padding: 20px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+  }
 }

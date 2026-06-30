@@ -1,14 +1,10 @@
 .app {
   width: 90%;
   max-width: 1280px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 0 16px 16px;
 }
 .toolbar {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  align-items: center;
   margin-bottom: 18px;
 
   display: flex;
@@ -25,14 +21,14 @@
 .createBtn {
   text-decoration: none;
 
-  height: clamp(38px, 4.4vw, 44px);
-  padding: 0 clamp(16px, 3vw, 22px);
+  height: 44px;
+  padding: 0 22px;
 
-  border-radius: 15px;
+  border-radius: 8px;
   border: 1px solid #2563eb;
   background: #2564ebd3;
 
-  font-size: clamp(14px, 1.7vw, 15.5px);
+  font-size: 15px;
   font-weight: 600;
   color: #fff;
 
@@ -75,9 +71,19 @@
   box-shadow: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .toolbar {
-    grid-template-columns: minmax(240px, 420px) 1fr auto;
     gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    width: 100%;
+    padding: 0 0 16px;
+  }
+
+  .createBtn {
+    width: 100%;
   }
 }

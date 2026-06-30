@@ -1,131 +1,123 @@
-🚀 NoteHub — Modern Note Manager
+# NoteHub
 
-A clean, fast and elegant note-taking app to organize your ideas and stay productive.
+A clean note manager built with Next.js App Router, TypeScript, React Query, and Zustand.
 
-🌐 **Live Demo:**  
-https://note-hub-drab.vercel.app/
+Live demo: https://note-hub-drab.vercel.app/
 
-📸 Screenshots
+## Screenshots
 
-🏠 Home Page
-![Home](screenshots/home.png)
+### Home
 
-🔎 Notes Page
-![Search](screenshots/notes.png)
+![NoteHub home page](screenshots/home.png)
 
-🎥 Create Page
-![Details](screenshots/create.png)
+### Notes
 
-✨ Highlights
+![NoteHub notes page](screenshots/notes.png)
 
-✔ Lightning-fast UI  
-✔ Auto-saving drafts  
-✔ Persistent state after refresh  
-✔ Clean modern design  
-✔ Server + Client architecture  
-✔ Optimized data fetching
+### Create Note
 
-🧩 Features
+![NoteHub create note page](screenshots/create.png)
 
-- 📝 Create notes with title, content, and tag
-- 🏷 Tag filtering system
-- 🗑 Delete notes instantly
-- 💾 Draft autosave while typing (Zustand)
-- 🔁 Draft restored after refresh (localStorage persist)
-- ↩ Cancel keeps progress
-- ✅ Submit clears draft
-- 🔄 Auto list refresh after mutations
-- 📱 Responsive design
-- 🌐 SEO + Social preview metadata
+## Why This Project Is In My Portfolio
 
-🧠 Draft Autosave System
+NoteHub shows the frontend skills I want recruiters to notice:
 
-NoteHub never lets you lose work.
-Every keystroke updates global state:
-input change → Zustand store → persist → localStorage
+- routing with Next.js App Router
+- typed API requests with Axios and TypeScript
+- server-state handling with React Query
+- draft autosave with Zustand persist
+- search, tag filtering, pagination, create, details, and delete flows
+- loading and error states
+- responsive CSS Modules without a UI framework
+- SEO and social preview metadata
 
-Flow:
+## Features
 
-1. User types → draft updates
-2. Page reload → draft restored
-3. Cancel → draft kept
-4. Submit → draft cleared
+- Create notes with title, content, and tag
+- Search notes by keyword
+- Filter notes by tag
+- Open note details in a separate route
+- Delete notes from the list
+- Autosave the create-note draft in localStorage
+- Refresh note data after create and delete actions
+- Responsive layout for desktop, tablet, and mobile
 
-⚙️ Tech Stack
+## Tech Stack
 
-Technology Purpose
-Next.js App Router Framework
-TypeScript Type safety
-React Query Server state
-Zustand Global state
-Persist middleware Draft storage
-CSS Modules Styling
-🔄 Smart Data Sync
+- Next.js
+- React
+- TypeScript
+- TanStack React Query
+- Zustand
+- Axios
+- CSS Modules
 
-After create/delete actions:
-mutation → cache invalidate → refetch → UI updates
-No page reload needed.
+## Getting Started
 
-🧱 Architecture Philosophy
+Clone the project:
 
-This project demonstrates modern frontend architecture principles:
-separation of server/client logic
-predictable state
-cache synchronization
-persistent UI state
-scalable folder structure
-
-📁 Project Structure
-
-app/
-└─ notes/
-├─ page.tsx
-└─ action/create/page.tsx
-components/
-├─ NoteForm
-└─ NoteList
-lib/
-├─ api
-└─ store
-types/
-
-🚀 Getting Started
-
-Clone project
+```bash
 git clone https://github.com/Anastasiia-git/NoteHub.git
-cd movie-explorer
-Install dependencies
+cd NoteHub
+```
+
+Install dependencies:
+
+```bash
 npm install
-Run locally
+```
+
+Create `.env.local` in the project root:
+
+```bash
+NEXT_PUBLIC_NOTEHUB_TOKEN=your_token_here
+```
+
+Run locally:
+
+```bash
 npm run dev
+```
 
-🔑 Environment Variables
+## Available Scripts
 
-Create .env file in root:
-VITE_API_KEY=your_api_key_here
-⚠️ Never commit API keys.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-🛣 Roadmap
+## Project Structure
 
-- ✏ Edit notes
-- 🔍 Search notes
-- 📊 Pagination improvements
-- 🌙 Dark mode
-- 🔐 Auth system
-- 📊 Metadata Support
+```text
+app/
+  notes/
+    action/create/
+    filter/
+    [id]/
+components/
+  Header/
+  Footer/
+  NoteForm/
+  NoteList/
+  Pagination/
+  SearchBox/
+lib/
+  api.ts
+  store/
+types/
+  note.ts
+```
 
-Includes full social preview support:
+## Next Improvements
 
-OpenGraph tags
-Twitter card
-Preview image
-SEO title + description
+- Edit existing notes
+- Better empty-state UI
+- Authentication
+- Dark mode
 
-👨‍💻 Author
+## Author
 
-Anastasiia Totska
-GitHub → https://github.com/Anastasiia-git
-
-📄 License
-
-Educational project — free to use for learning purposes.
+Anastasiia Totska  
+GitHub: https://github.com/Anastasiia-git

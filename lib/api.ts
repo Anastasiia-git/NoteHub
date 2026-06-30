@@ -3,10 +3,6 @@ import type { Note, CreateNoteDto } from "../types/note";
 
 const BASE_URL = "https://notehub-public.goit.study/api";
 
-const NOTEHUB_TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN as
-  | string
-  | undefined;
-
 const getToken = () => {
   const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN as string | undefined;
   if (!token)
@@ -18,7 +14,6 @@ const api = axios.create({
   baseURL: BASE_URL,
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${NOTEHUB_TOKEN}`,
   },
 });
 
@@ -42,24 +37,15 @@ export interface NoteResponse {
 export const fetchNotes = async (
   params: FetchNotesParams,
 ): Promise<NoteResponse> => {
-  try {
-    const response = await api.get<NoteResponse>("/notes", {
-      params: {
-        search: params.search,
-        page: params.page ?? 1,
-        perPage: params.perPage ?? 10,
-        tag: params.tag,
-      },
-    });
-    return response.data;
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      console.log("Axios error:", error.message);
-      console.log("Status:", error.response?.status);
-      console.log("Response:", error.response?.data);
-    }
-    throw error;
-  }
+  const response = await api.get<NoteResponse>("/notes", {
+    params: {
+      search: params.search,
+      page: params.page ?? 1,
+      perPage: params.perPage ?? 10,
+      tag: params.tag,
+    },
+  });
+  return response.data;
 };
 
 export const createNote = async (note: CreateNoteDto): Promise<Note> => {

@@ -1,16 +1,16 @@
 .input {
-  width: min(100%, 520px);
+  width: 100%;
+  max-width: 520px;
 
-  height: clamp(38px, 4.2vw, 44px);
-  padding: 0 clamp(10px, 2.2vw, 14px);
+  height: 44px;
+  padding: 0 14px;
 
-  background: var(--card);
   background: rgba(255, 255, 255, 0.69);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
+  border-radius: 8px;
 
   font-size: 18px;
-  color: var(--text);
+  color: rgba(0, 0, 0, 0.86);
 
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
   outline: none;
@@ -42,8 +42,7 @@
 
 @media (max-width: 520px) {
   .input {
-    height: 52px;
+    height: 46px;
     font-size: 16px;
-    padding: 0 16px;
   }
 }

@@ -8,11 +8,12 @@ import { fetchNotes } from "@/lib/api";
 import NotesFilteredClient from "./Notes.client";
 
 type Props = {
-  params: { slug?: string[] };
+  params: Promise<{ slug?: string[] }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const filter = params.slug?.[0] ?? "all";
+  const { slug } = await params;
+  const filter = slug?.[0] ?? "all";
   const filterLabel =
     filter === "all"
       ? "All notes"
