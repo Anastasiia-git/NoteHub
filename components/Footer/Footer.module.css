@@ -1,19 +1,21 @@
 .footer {
-  padding: 26px 40px;
-  background: linear-gradient(90deg, #525fc7 0%, #239c8e 100%);
+  padding: 0 56px 14px;
 }
 
 .content {
-  max-width: 1100px;
+  max-width: var(--page-max-width);
   margin: 0 auto;
+  min-height: auto;
+  padding: 16px 0 0;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
 
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-line);
 }
 
 .content p {
@@ -21,38 +23,123 @@
   font-size: 15px;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(107, 92, 255, 0.08);
+}
+/* 
+.brandIcon img {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+} */
+
 .wrap {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.wrap a {
-  margin-left: 8px;
-  color: #fff;
+.wrap strong {
+  margin-right: 10px;
+  color: var(--color-ink);
+}
+
+.emailLink {
+  color: var(--color-violet);
   text-decoration: none;
   font-weight: 700;
 
   padding: 2px 6px;
   border-radius: 8px;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   transition:
     background-color 160ms ease,
     opacity 160ms ease;
 }
 
-.wrap a:hover {
-  background: rgba(255, 255, 255, 0.14);
+.emailLink:hover {
+  background: rgba(107, 92, 255, 0.1);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #050816;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  transition:
+    transform 140ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease;
+}
+
+.socials a:hover {
+  color: var(--color-violet);
+  transform: translateY(-1px);
+  background: rgba(107, 92, 255, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 0 32px 14px;
+  }
+
+  .content {
+    padding: 16px 0 0;
+  }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 24px;
+    padding: 0 24px 14px;
+  }
+
+  .content {
+    padding: 16px 0 0;
   }
 }
 
 @media (max-width: 520px) {
   .footer {
-    padding: 20px 16px;
+    padding: 0 12px 12px;
+  }
+
+  .content {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .brand {
+    align-items: flex-start;
+  }
+
+  .socials {
+    width: 100%;
   }
 }

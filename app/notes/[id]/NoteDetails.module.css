@@ -1,14 +1,16 @@
 .main {
   flex: 1;
+  padding: 42px 24px 34px;
 }
 
 .container {
   max-width: 800px;
-  margin: 32px auto;
-  padding: 24px;
-  background-color: #ffffff;
+  margin: 20px auto 0;
+  padding: 30px;
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-card);
 }
 
 .item {
@@ -21,67 +23,91 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 14px;
 }
 
 .header h2 {
   margin: 0;
   font-size: 28px;
-  color: #333;
+  color: var(--color-ink);
 }
 
 .content {
   font-size: 18px;
   line-height: 26px;
-  color: #444;
+  color: var(--color-text);
   white-space: pre-wrap;
 }
 
 .date {
   font-size: 14px;
-  color: #888;
+  color: var(--color-muted);
   text-align: right;
 }
 
 .tag {
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 12px;
-  color: #0d6efd;
-  background-color: #e7f1ff;
-  border: 1px solid #b6d4fe;
-  border-radius: 12px;
-  max-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 30px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-violet);
+  background: #f1edff;
+  border: 1px solid #ded8ff;
+  border-radius: 999px;
+  max-width: 160px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.backBtn {
-  margin: 20px 0 0 20px;
-  align-self: flex-start;
+.cancelButton {
+  margin: 0 auto;
+  max-width: 800px;
 
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  color: #fff;
-  background-color: #333;
+  height: 42px;
+  padding: 0 18px;
+  font-size: 15px;
+  font-weight: 700;
 
-  border: none;
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--color-line);
   border-radius: 8px;
 
   cursor: pointer;
 
   transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms ease;
+  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
 }
 
-.backBtn:hover {
-  background-color: #444;
+.cancelButton:hover {
+  background: rgba(107, 92, 255, 0.08);
 }
 
-.backBtn:active {
-  transform: scale(0.97);
+.cancelButton:active {
+  transform: translateY(0.5px);
+}
+
+@media (max-width: 520px) {
+  .main {
+    padding: 28px 12px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
 }

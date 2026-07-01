@@ -26,13 +26,13 @@
   height: 40px;
   padding: 0 12px;
 
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
-  background: #ffffffa7;
+  border-radius: 8px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.72);
 
   font-size: 15px;
-  font-weight: 650;
-  color: rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+  color: var(--color-ink);
   text-decoration: none;
 
   cursor: pointer;
@@ -44,13 +44,13 @@
     box-shadow 160ms ease,
     transform 120ms ease,
     color 160ms ease;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
 }
 
 .pagination li a:hover,
 .pagination li button:hover {
-  border-color: rgba(0, 0, 0, 0.22);
-  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(107, 92, 255, 0.28);
+  background: rgba(107, 92, 255, 0.06);
 }
 
 .pagination li a:active,
@@ -60,16 +60,15 @@
 
 .active a,
 .active button {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: linear-gradient(135deg, var(--color-violet), #7564ff);
+  border-color: transparent;
   color: #fff;
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
+  box-shadow: 0 12px 22px rgba(107, 92, 255, 0.22);
 }
 
 .active a:hover,
 .active button:hover {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
+  background: linear-gradient(135deg, var(--color-violet), #7564ff);
 }
 
 .pagination li:first-child a,
@@ -85,7 +84,7 @@
 .pagination :global(.disabled) button {
   opacity: 0.45;
   cursor: not-allowed;
-  background: #f6f7f9;
+  background: rgba(255, 255, 255, 0.56);
   transform: none;
   box-shadow: none;
 }
@@ -103,8 +102,8 @@
 .pagination li a:focus-visible,
 .pagination li button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
-  border-color: rgba(37, 99, 235, 0.65);
+  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.16);
+  border-color: rgba(107, 92, 255, 0.65);
 }
 
 @media (max-width: 520px) {
@@ -117,6 +116,6 @@
     min-width: 34px;
     height: 34px;
     padding: 0 10px;
-    border-radius: 9px;
+    border-radius: 8px;
   }
 }

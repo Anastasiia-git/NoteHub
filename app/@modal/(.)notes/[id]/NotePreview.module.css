@@ -1,10 +1,9 @@
 .container {
   max-width: 800px;
-  margin: 32px auto;
-  padding: 24px;
-  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .item {
@@ -17,50 +16,55 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 14px;
+  gap: 16px;
 }
 
 .header h2 {
   margin: 0;
   font-size: 28px;
-  color: #333;
+  color: var(--color-ink);
 }
 
 .content {
   font-size: 18px;
   line-height: 26px;
-  color: #444;
+  color: var(--color-text);
   white-space: pre-wrap;
 }
 
 .date {
   font-size: 14px;
-  color: #888;
+  color: var(--color-muted);
   text-align: right;
 }
 
 .tag {
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 12px;
-  color: #0d6efd;
-  background-color: #e7f1ff;
-  border: 1px solid #b6d4fe;
-  border-radius: 12px;
-  max-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 30px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-violet);
+  background: #f1edff;
+  border: 1px solid #ded8ff;
+  border-radius: 999px;
+  max-width: 160px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .closeBtn {
-  border: none;
-  background: #333;
-  color: #fff;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-ink);
   cursor: pointer;
 
-  width: 100px;
+  width: 96px;
   height: 36px;
   border-radius: 8px;
 
@@ -72,15 +76,28 @@
   font-weight: 600;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms ease;
 }
 
 .closeBtn:hover {
-  background: #444;
+  background: rgba(107, 92, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
   transform: translateY(-1px);
 }
 
 .closeBtn:active {
   transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
 }

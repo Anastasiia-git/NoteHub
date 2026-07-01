@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { Note } from "../../types/note";
 import { deleteNote } from "@/lib/api";
 import Link from "next/link";
+import { Eye, MoreHorizontal, Trash2 } from "lucide-react";
 
 interface NoteListProps {
   notes: Note[];
@@ -30,19 +31,29 @@ function NoteList({ notes }: NoteListProps) {
     <ul className={css.list}>
       {notes.map((note) => (
         <li key={note.id} className={css.listItem}>
+          <div className={css.cardHeader}>
+            <span className={`${css.tag} ${css[getTagClassName(note.tag)]}`}>{note.tag}</span>
+            <span className={css.menuDots} aria-hidden="true">
+              <MoreHorizontal size={20} />
+            </span>
+          </div>
           <h2 className={css.title}>{note.title}</h2>
           <p className={css.content}>{note.content}</p>
           <div className={css.footer}>
-            <span className={css.tag}>{note.tag}</span>
+            <time className={css.date} dateTime={note.createdAt}>
+              {formatNoteDate(note.createdAt)}
+            </time>
             <Link href={`/notes/${note.id}`} className={css.link}>
-              View details
+              <Eye size={17} aria-hidden="true" />
+              <span className={css.actionText}>View</span>
             </Link>
             <button
               onClick={() => handleDelete(note.id)}
               disabled={deleteMutation.isPending}
               className={css.button}
+              aria-label={`Delete ${note.title}`}
             >
-              Delete
+              <Trash2 size={17} aria-hidden="true" />
             </button>
           </div>
         </li>
@@ -52,3 +63,22 @@ function NoteList({ notes }: NoteListProps) {
 }
 
 export default NoteList;
+
+function formatNoteDate(date: string) {
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(date));
+}
+
+function getTagClassName(tag: string) {
+  const normalizedTag = tag.toLowerCase();
+
+  if (normalizedTag === "personal") return "tagPersonal";
+  if (normalizedTag === "meeting") return "tagMeeting";
+  if (normalizedTag === "shopping") return "tagShopping";
+  if (normalizedTag === "todo") return "tagTodo";
+
+  return "tagWork";
+}
