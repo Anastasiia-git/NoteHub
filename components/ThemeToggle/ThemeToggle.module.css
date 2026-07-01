@@ -1,7 +1,7 @@
 .toggle {
-  width: 58px;
-  height: 44px;
-  padding: 4px;
+  width: 40px;
+  height: 32px;
+  padding: 3px;
 
   display: inline-flex;
   align-items: center;
@@ -38,8 +38,8 @@
 }
 
 .thumb {
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   border-radius: 999px;
 
   display: inline-flex;
@@ -54,7 +54,7 @@
 }
 
 .thumb[data-theme="dark"] {
-  transform: translateX(16px);
+  transform: translateX(8px);
 }
 
 :global(html[data-theme="dark"]) .toggle {
@@ -71,7 +71,19 @@
 
 @media (min-width: 768px) {
   .toggle {
+    width: 58px;
+    height: 44px;
+    padding: 4px;
     align-self: auto;
+  }
+
+  .thumb {
+    width: 34px;
+    height: 34px;
+  }
+
+  .thumb[data-theme="dark"] {
+    transform: translateX(16px);
   }
 }
 

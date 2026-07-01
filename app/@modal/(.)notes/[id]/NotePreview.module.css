@@ -70,7 +70,7 @@
   justify-content: center;
 
   color: var(--color-ink);
-  background: rgba(255, 255, 255, 0.72);
+  background: transparent;
   border: 1px solid var(--color-line);
   border-radius: 8px;
 
@@ -93,6 +93,29 @@
 
 .closeBtn:active {
   transform: translateY(0);
+}
+
+.closeBtn:focus-visible {
+  outline: none;
+  border-color: rgba(107, 92, 255, 0.65);
+  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.18);
+}
+
+:global(html[data-theme="dark"]) .closeBtn {
+  background: transparent;
+  border-color: rgba(179, 191, 232, 0.28);
+}
+
+:global(html[data-theme="dark"]) .closeBtn:hover {
+  background: transparent;
+  border-color: rgba(149, 140, 255, 0.5);
+  box-shadow: none;
+}
+
+:global(html[data-theme="dark"]) .closeBtn:focus-visible {
+  background: transparent;
+  border-color: rgba(149, 140, 255, 0.72);
+  box-shadow: 0 0 0 4px rgba(149, 140, 255, 0.22);
 }
 
 @media (min-width: 768px) {

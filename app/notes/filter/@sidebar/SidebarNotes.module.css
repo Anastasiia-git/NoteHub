@@ -1,12 +1,15 @@
 .menuList {
   margin: 0;
-  padding: 14px;
+  padding: 10px 12px;
   list-style: none;
 
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
 
   background: rgba(255, 255, 255, 0.24);
   border: 1px solid var(--color-line);
@@ -15,12 +18,18 @@
   backdrop-filter: blur(16px);
 }
 
+.menuList::-webkit-scrollbar {
+  display: none;
+}
+
 .menuItem {
-  flex: 1 1 110px;
+  flex: 0 0 clamp(118px, 39vw, 152px);
   margin: 0;
+  scroll-snap-align: start;
 }
 
 .menuLink {
+  width: 100%;
   min-height: 42px;
   padding: 0 14px;
 
@@ -65,10 +74,17 @@
 @media (min-width: 768px) {
   .menuList {
     padding: 16px;
+    flex-wrap: wrap;
+    overflow: visible;
+    scroll-snap-type: none;
   }
 
   .menuItem {
     flex: 0 0 auto;
+  }
+
+  .menuLink {
+    width: auto;
   }
 }
 

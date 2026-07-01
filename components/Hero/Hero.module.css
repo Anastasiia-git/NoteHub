@@ -1,4 +1,5 @@
 .hero {
+  max-width: 100%;
   position: relative;
   overflow: hidden;
   padding: 16px 12px;
@@ -6,8 +7,9 @@
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
+  text-align: center;
 }
 
 .hero::before {
@@ -23,14 +25,17 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  align-self: stretch;
+  align-self: center;
+  width: 100%;
   min-width: 0;
-  max-width: 100%;
+  max-width: 286px;
+  overflow: hidden;
 }
 
 .label {
+  max-width: 100%;
   width: fit-content;
-  margin: 0;
+  margin: 0 auto;
   padding: 8px 16px;
 
   display: inline-flex;
@@ -61,15 +66,16 @@
 }
 
 .text {
-  max-width: 580px;
-  margin: 0;
+  max-width: 286px;
+  margin: 0 auto;
   color: var(--color-text);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .textLine {
-  display: block;
+  display: inline;
 }
 
 .actions {
@@ -140,14 +146,15 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 100%;
+  max-width: 286px;
   min-height: 220px;
   overflow: hidden;
 }
 
 .heroImage {
   width: 100%;
-  max-width: 380px;
+  max-width: 286px;
+  margin: 0 auto;
   height: auto;
   display: block;
 }
@@ -183,18 +190,35 @@
   .hero {
     min-height: 350px;
     padding: 14px 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .heroContent {
+    align-self: auto;
+    width: 50%;
+    max-width: 50%;
+  }
+
+  .label {
+    margin: 0;
   }
 
   .title {
     font-size: 48px;
   }
 
-  .textLine {
-    display: inline;
+  .text {
+    max-width: 580px;
+    font-size: 17px;
   }
 
   .actions {
     width: auto;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
@@ -208,12 +232,14 @@
   }
 
   .heroVisual {
-    min-height: 250px;
+    width: 48%;
+    min-height: 0;
   }
 
   .heroImage {
     width: 100%;
     max-width: 680px;
+    margin: 0;
   }
 }
 
@@ -221,28 +247,9 @@
   .hero {
     min-height: 370px;
     padding: 14px 20px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .heroContent {
-    align-self: auto;
-    width: 50%;
-    max-width: 50%;
   }
 
   .title {
     font-size: 58px;
-  }
-
-  .heroVisual {
-    width: 48%;
-    min-height: 0;
-  }
-
-  .heroImage {
-    width: 100%;
   }
 }
