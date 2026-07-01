@@ -103,7 +103,7 @@
 
 @media (min-width: 1024px) {
   .container {
-    min-height: 730px;
+    min-height: calc(100vh - 90px - 80px);
     padding: 18px 56px 10px;
     justify-content: center;
   }

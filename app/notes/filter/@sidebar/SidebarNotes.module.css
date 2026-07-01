@@ -1,15 +1,15 @@
 .menuList {
   margin: 0;
-  padding: 10px 12px;
+  padding: 8px;
   list-style: none;
 
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
+
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
-  scroll-snap-type: x proximity;
 
   background: rgba(255, 255, 255, 0.24);
   border: 1px solid var(--color-line);
@@ -23,15 +23,14 @@
 }
 
 .menuItem {
-  flex: 0 0 clamp(118px, 39vw, 152px);
+  flex: 0 0 auto;
   margin: 0;
-  scroll-snap-align: start;
 }
 
 .menuLink {
-  width: 100%;
+  min-width: 96px;
   min-height: 42px;
-  padding: 0 14px;
+  padding: 0 12px;
 
   display: inline-flex;
   align-items: center;
@@ -76,7 +75,6 @@
     padding: 16px;
     flex-wrap: wrap;
     overflow: visible;
-    scroll-snap-type: none;
   }
 
   .menuItem {
@@ -84,6 +82,7 @@
   }
 
   .menuLink {
+    min-width: auto;
     width: auto;
   }
 }
@@ -97,7 +96,7 @@
   }
 
   .menuLink {
-    display: flex;
+    width: 100%;
     padding-top: 12px;
     padding-bottom: 12px;
   }

@@ -9,7 +9,7 @@ const SOCIAL_LINKS = [
     icon: FaGithub,
   },
   {
-    href: "https://www.linkedin.com/in/anastasiia-totska/",
+    href: "https://www.linkedin.com/in/anastasiia-totska-53a76b3a8/",
     label: "LinkedIn profile",
     icon: FaLinkedinIn,
   },

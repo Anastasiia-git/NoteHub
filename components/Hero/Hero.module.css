@@ -18,8 +18,16 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 8% 22%, rgba(107, 92, 255, 0.13), transparent 30%),
-    radial-gradient(circle at 92% 34%, rgba(18, 189, 178, 0.18), transparent 32%);
+    radial-gradient(
+      circle at 8% 22%,
+      rgba(107, 92, 255, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 34%,
+      rgba(18, 189, 178, 0.18),
+      transparent 32%
+    );
 }
 
 .heroContent {
@@ -153,7 +161,7 @@
 
 .heroImage {
   width: 100%;
-  max-width: 286px;
+  /* max-width: 286px; */
   margin: 0 auto;
   height: auto;
   display: block;
@@ -232,13 +240,19 @@
   }
 
   .heroVisual {
-    width: 48%;
+    width: 52%;
+    max-width: 620px;
     min-height: 0;
+  }
+
+  .heroContent {
+    width: 44%;
+    max-width: 44%;
   }
 
   .heroImage {
     width: 100%;
-    max-width: 680px;
+    max-width: none;
     margin: 0;
   }
 }
