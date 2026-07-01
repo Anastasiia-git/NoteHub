@@ -1,19 +1,18 @@
 .header {
   width: 100%;
-  padding: 14px 56px 0;
+  padding: 10px 12px 0;
 }
 
 .inner {
   width: 100%;
   max-width: var(--page-max-width);
-  min-height: 76px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 14px;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
 
   background: var(--glass-bg);
   border: 1px solid var(--color-line);
@@ -25,9 +24,9 @@
 .logo {
   display: inline-flex;
   align-items: center;
-
+  justify-content: center;
   color: var(--color-ink);
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 900;
   text-decoration: none;
 }
@@ -48,7 +47,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: #ffffff;
 }
 
 .logoIcon {
@@ -57,53 +55,61 @@
   object-fit: contain;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
 .rightGroup {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 14px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .navLink {
-  min-height: 44px;
-  padding: 0 18px;
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 14px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 700;
-  transition:
-    transform 140ms ease,
-    box-shadow 160ms ease,
-    border-color 160ms ease;
-}
-
-.navLink {
   color: var(--color-ink);
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--color-line);
+  border-radius: 8px;
   box-shadow: 0 10px 22px rgba(83, 98, 153, 0.08);
+
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 140ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
 }
 
 .navLink svg {
-  color: var(--color-violet);
   flex: 0 0 auto;
+  color: var(--color-violet);
 }
 
 .navLink:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(83, 98, 153, 0.16);
+  color: var(--color-violet);
+  transform: translateY(-2px);
+  background: rgba(107, 92, 255, 0.08);
+  border-color: rgba(107, 92, 255, 0.4);
+  box-shadow: 0 16px 34px rgba(83, 98, 153, 0.18);
 }
 
 .navLink:active {
@@ -113,20 +119,25 @@
 .logo:focus-visible,
 .navLink:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.16);
+  border-color: rgba(107, 92, 255, 0.65);
+  box-shadow:
+    0 0 0 4px rgba(107, 92, 255, 0.2),
+    0 14px 28px rgba(83, 98, 153, 0.16);
 }
 
-@media (max-width: 1024px) {
-  .header {
-    padding: 14px 32px 0;
-  }
-
-  .inner {
-    padding: 0 24px;
-  }
+:global(html[data-theme="dark"]) .navLink {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(179, 191, 232, 0.28);
+  box-shadow: none;
 }
 
-@media (max-width: 768px) {
+:global(html[data-theme="dark"]) .navLink:hover {
+  background: rgba(149, 140, 255, 0.1);
+  border-color: rgba(149, 140, 255, 0.5);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 768px) {
   .header {
     padding: 12px 24px 0;
   }
@@ -134,53 +145,56 @@
   .inner {
     min-height: 66px;
     padding: 0 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
   }
 
   .logo {
-    font-size: 26px;
-    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .rightGroup {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 10px;
   }
 
   .navLink {
-    min-height: 42px;
-    padding: 0 14px;
-    font-size: 15px;
+    width: auto;
+    flex: 0 0 auto;
   }
 }
 
-@media (max-width: 520px) {
+@media (min-width: 1024px) {
   .header {
-    padding: 10px 12px 0;
+    padding: 14px 56px 0;
   }
 
   .inner {
-    min-height: auto;
-    padding: 14px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
+    min-height: 76px;
+    padding: 0 28px;
+    gap: 28px;
   }
 
   .logo {
-    justify-content: center;
+    font-size: 28px;
   }
 
   .nav {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .rightGroup {
-    flex-direction: column;
-    align-items: stretch;
+    gap: 14px;
   }
 
   .navLink {
-    flex: 1 1 130px;
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 16px;
   }
 }

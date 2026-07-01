@@ -18,7 +18,6 @@ function SearchBox({ onChange, value }: SearchBoxProps) {
         onChange={(e) => onChange(e.target.value)}
         value={value}
       />
-      <kbd>⌘ K</kbd>
     </label>
   );
 }

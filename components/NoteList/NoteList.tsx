@@ -2,10 +2,10 @@
 
 import css from "./NoteList.module.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { Note } from "../../types/note";
+import type { Note } from "@/types/note";
 import { deleteNote } from "@/lib/api";
 import Link from "next/link";
-import { Eye, MoreHorizontal, Trash2 } from "lucide-react";
+import { Eye, Trash2 } from "lucide-react";
 
 interface NoteListProps {
   notes: Note[];
@@ -32,9 +32,8 @@ function NoteList({ notes }: NoteListProps) {
       {notes.map((note) => (
         <li key={note.id} className={css.listItem}>
           <div className={css.cardHeader}>
-            <span className={`${css.tag} ${css[getTagClassName(note.tag)]}`}>{note.tag}</span>
-            <span className={css.menuDots} aria-hidden="true">
-              <MoreHorizontal size={20} />
+            <span className={`${css.tag} ${css[getTagClassName(note.tag)]}`}>
+              {note.tag}
             </span>
           </div>
           <h2 className={css.title}>{note.title}</h2>

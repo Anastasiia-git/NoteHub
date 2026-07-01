@@ -26,7 +26,6 @@ export default function NoteForm({ onClose }: NoteFormProps) {
         queryKey: ["notes"],
         exact: false,
       });
-      await queryClient.refetchQueries({ queryKey: ["notes"], exact: false });
 
       onClose();
     },

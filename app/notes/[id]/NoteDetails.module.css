@@ -1,12 +1,12 @@
 .main {
   flex: 1;
-  padding: 42px 24px 34px;
+  padding: 28px 12px;
 }
 
 .container {
   max-width: 800px;
   margin: 20px auto 0;
-  padding: 30px;
+  padding: 20px;
   background: var(--color-card);
   border: 1px solid var(--color-line);
   border-radius: 8px;
@@ -20,94 +20,148 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--color-line);
   padding-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid var(--color-line);
 }
 
 .header h2 {
   margin: 0;
-  font-size: 28px;
   color: var(--color-ink);
+  font-size: 24px;
 }
 
 .content {
+  color: var(--color-text);
   font-size: 18px;
   line-height: 26px;
-  color: var(--color-text);
   white-space: pre-wrap;
 }
 
 .date {
-  font-size: 14px;
   color: var(--color-muted);
+  font-size: 14px;
   text-align: right;
 }
 
 .tag {
-  display: inline-flex;
-  align-items: center;
   width: fit-content;
+  max-width: 160px;
   min-height: 30px;
   padding: 0 12px;
-  font-size: 14px;
-  font-weight: 700;
+
+  display: inline-flex;
+  align-items: center;
+
   color: var(--color-violet);
   background: #f1edff;
   border: 1px solid #ded8ff;
   border-radius: 999px;
-  max-width: 160px;
+
+  font-size: 14px;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .cancelButton {
-  margin: 0 auto;
   max-width: 800px;
+  height: 42px;
+  margin: 0 auto;
+  padding: 0 18px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  height: 42px;
-  padding: 0 18px;
-  font-size: 15px;
-  font-weight: 700;
-
   color: var(--color-ink);
-  background: rgba(255, 255, 255, 0.72);
+  background: transparent;
   border: 1px solid var(--color-line);
   border-radius: 8px;
+  box-shadow: none;
+
+  font-size: 15px;
+  font-weight: 700;
 
   cursor: pointer;
 
   transition:
     background-color 160ms ease,
+    border-color 160ms ease,
     box-shadow 160ms ease,
+    color 160ms ease,
     transform 120ms ease;
-  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
 }
 
 .cancelButton:hover {
-  background: rgba(107, 92, 255, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(107, 92, 255, 0.36);
+  color: var(--color-violet);
+  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
+  transform: translateY(-1px);
 }
 
 .cancelButton:active {
   transform: translateY(0.5px);
 }
 
-@media (max-width: 520px) {
+.cancelButton:focus-visible {
+  outline: none;
+  border-color: rgba(107, 92, 255, 0.65);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 4px rgba(107, 92, 255, 0.18),
+    0 10px 20px rgba(83, 98, 153, 0.08);
+}
+
+:global(html[data-theme="dark"]) .cancelButton {
+  color: var(--color-ink);
+  background: transparent;
+  border-color: rgba(179, 191, 232, 0.28);
+  box-shadow: none;
+}
+
+:global(html[data-theme="dark"]) .cancelButton:hover {
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(149, 140, 255, 0.5);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
+:global(html[data-theme="dark"]) .cancelButton:focus-visible {
+  border-color: rgba(149, 140, 255, 0.72);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 4px rgba(149, 140, 255, 0.22),
+    0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+@media (min-width: 768px) {
   .main {
-    padding: 28px 12px;
+    padding: 42px 24px 34px;
   }
 
   .container {
-    padding: 20px;
+    padding: 30px;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .header h2 {
-    font-size: 24px;
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-top: 20px;
   }
 }

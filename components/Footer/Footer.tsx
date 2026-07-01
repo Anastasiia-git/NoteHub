@@ -1,6 +1,5 @@
 import css from "./Footer.module.css";
 import Image from "next/image";
-import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const SOCIAL_LINKS = [
@@ -18,20 +17,26 @@ const SOCIAL_LINKS = [
 
 function Footer() {
   return (
-    <div className={css.footer}>
+    <footer className={css.footer}>
       <div className={css.content}>
         <div className={css.brand}>
           <span className={css.brandIcon} aria-hidden="true">
             <Image
               src="/favicon.png"
               alt=""
-              width={30}
-              height={30}
+              width={28}
+              height={28}
+              className={css.logoIcon}
               unoptimized
             />
           </span>
-          <p>© {new Date().getFullYear()} NoteHub. All rights reserved.</p>
+          <div className={css.brandCopy}>
+            <span className={css.logoText}>NoteHub</span>
+          </div>
         </div>
+        <p className={css.copyright}>
+          © {new Date().getFullYear()} All rights reserved.
+        </p>
         <div className={css.socials} aria-label="Social links">
           {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
             <a
@@ -46,7 +51,7 @@ function Footer() {
           ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

@@ -1,15 +1,13 @@
 .pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  padding: 0;
   margin: 0;
+  padding: 0;
   list-style: none;
 
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .pagination li {
@@ -18,21 +16,22 @@
 
 .pagination li a,
 .pagination li button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-
-  border-radius: 8px;
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.36);
   border: 1px solid var(--color-line);
-  background: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
 
   font-size: 15px;
   font-weight: 700;
-  color: var(--color-ink);
   text-decoration: none;
 
   cursor: pointer;
@@ -44,13 +43,13 @@
     box-shadow 160ms ease,
     transform 120ms ease,
     color 160ms ease;
-  box-shadow: 0 10px 20px rgba(83, 98, 153, 0.08);
 }
 
 .pagination li a:hover,
 .pagination li button:hover {
-  border-color: rgba(107, 92, 255, 0.28);
-  background: rgba(107, 92, 255, 0.06);
+  background: rgba(107, 92, 255, 0.1);
+  border-color: rgba(107, 92, 255, 0.44);
+  transform: translateY(-1px);
 }
 
 .pagination li a:active,
@@ -60,9 +59,9 @@
 
 .active a,
 .active button {
+  color: #fff;
   background: linear-gradient(135deg, var(--color-violet), #7564ff);
   border-color: transparent;
-  color: #fff;
   box-shadow: 0 12px 22px rgba(107, 92, 255, 0.22);
 }
 
@@ -75,47 +74,77 @@
 .pagination li:last-child a,
 .pagination li:first-child button,
 .pagination li:last-child button {
+  padding: 0 12px;
   font-size: 16px;
   font-weight: 800;
-  padding: 0 14px;
 }
 
 .pagination :global(.disabled) a,
 .pagination :global(.disabled) button {
   opacity: 0.45;
   cursor: not-allowed;
-  background: rgba(255, 255, 255, 0.56);
+  background: transparent;
   transform: none;
   box-shadow: none;
 }
 
 .pagination :global(.break) a,
 .pagination :global(.break) button {
+  min-width: 22px;
+  padding: 0 6px;
   border-color: transparent;
   background: transparent;
   box-shadow: none;
   cursor: default;
-  padding: 0 6px;
-  min-width: 22px;
 }
 
 .pagination li a:focus-visible,
 .pagination li button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.16);
   border-color: rgba(107, 92, 255, 0.65);
+  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.16);
 }
 
-@media (max-width: 520px) {
+:global(html[data-theme="dark"]) .pagination li a,
+:global(html[data-theme="dark"]) .pagination li button {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(179, 191, 232, 0.24);
+}
+
+:global(html[data-theme="dark"]) .pagination li a:hover,
+:global(html[data-theme="dark"]) .pagination li button:hover {
+  background: rgba(149, 140, 255, 0.1);
+  border-color: rgba(149, 140, 255, 0.48);
+}
+
+:global(html[data-theme="dark"]) .active a,
+:global(html[data-theme="dark"]) .active button {
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-teal));
+}
+
+@media (min-width: 768px) {
   .pagination {
-    gap: 6px;
+    gap: 8px;
   }
 
   .pagination li a,
   .pagination li button {
-    min-width: 34px;
-    height: 34px;
-    padding: 0 10px;
-    border-radius: 8px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .pagination li:first-child a,
+  .pagination li:last-child a,
+  .pagination li:first-child button,
+  .pagination li:last-child button {
+    padding: 0 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagination {
+    justify-content: center;
   }
 }
