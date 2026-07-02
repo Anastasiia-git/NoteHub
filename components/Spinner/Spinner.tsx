@@ -1,17 +1,11 @@
-'use client';
+"use client";
 
-import { BeatLoader } from 'react-spinners';
+import { BeatLoader } from "react-spinners";
+import css from "./Spinner.module.css";
 
 export default function Spinner() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
+    <div className={css.spinner}>
       <BeatLoader size={12} />
     </div>
   );

@@ -1,0 +1,76 @@
+.errorState {
+  width: 100%;
+  max-width: 620px;
+  margin: 48px auto;
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+}
+
+.errorState h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.errorState p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.errorState button {
+  min-height: 42px;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-teal));
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    box-shadow 160ms ease,
+    filter 160ms ease,
+    transform 120ms ease;
+}
+
+.errorState button:hover {
+  filter: saturate(1.12);
+  box-shadow: 0 18px 34px rgba(83, 98, 153, 0.2);
+  transform: translateY(-1px);
+}
+
+.errorState button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.18);
+}
+
+@media (min-width: 768px) {
+  .errorState {
+    margin-top: 72px;
+    padding: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .errorState {
+    margin-top: 88px;
+  }
+}

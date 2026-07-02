@@ -25,7 +25,7 @@ const FEATURES = [
 
 export default function Home() {
   return (
-    <main className={css.container}>
+    <div className={css.container}>
       <Hero />
 
       <section className={css.features} aria-label="Project highlights">
@@ -44,6 +44,6 @@ export default function Home() {
           </article>
         ))}
       </section>
-    </main>
+    </div>
   );
 }

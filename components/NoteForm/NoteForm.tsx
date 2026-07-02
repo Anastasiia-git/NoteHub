@@ -2,9 +2,10 @@
 
 import css from "./NoteForm.module.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import { createNote } from "@/lib/api";
 import { useNoteDraftStore } from "@/lib/store/noteStore";
-import type { CreateNoteDto } from "@/types/note";
+import { NOTE_TAGS, type CreateNoteDto, type NoteTag } from "@/types/note";
 
 interface NoteFormProps {
   onClose: () => void;
@@ -27,19 +28,26 @@ export default function NoteForm({ onClose }: NoteFormProps) {
         exact: false,
       });
 
+      toast.success("Note created");
       onClose();
+    },
+    onError: () => {
+      toast.error("Failed to create note");
     },
   });
 
   const createNoteAction = async (formData: FormData) => {
+    const tag = String(formData.get("tag") ?? "Todo");
+
+    if (!isNoteTag(tag)) return;
+
     const values: CreateNoteDto = {
       title: String(formData.get("title") ?? "").trim(),
       content: String(formData.get("content") ?? "").trim(),
-      tag: String(formData.get("tag") ?? "Todo"),
+      tag,
     };
 
     if (values.title.length < 3 || values.title.length > 50) return;
-    if (!values.tag) return;
 
     await mutation.mutateAsync(values);
   };
@@ -81,13 +89,17 @@ export default function NoteForm({ onClose }: NoteFormProps) {
           className={css.select}
           required
           value={draft.tag}
-          onChange={(e) => setDraft({ tag: e.target.value })}
+          onChange={(e) => {
+            if (isNoteTag(e.target.value)) {
+              setDraft({ tag: e.target.value });
+            }
+          }}
         >
-          <option value="Todo">Todo</option>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Meeting">Meeting</option>
-          <option value="Shopping">Shopping</option>
+          {NOTE_TAGS.map((tag) => (
+            <option value={tag} key={tag}>
+              {tag}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -111,4 +123,8 @@ export default function NoteForm({ onClose }: NoteFormProps) {
       )}
     </form>
   );
+}
+
+function isNoteTag(value: string): value is NoteTag {
+  return NOTE_TAGS.includes(value as NoteTag);
 }

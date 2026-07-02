@@ -38,7 +38,7 @@ export default function NotePreviewClient() {
                 onClick={() => router.back()}
                 aria-label="Close"
               >
-                ← Back
+                Back
               </button>
             </div>
 

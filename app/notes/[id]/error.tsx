@@ -1,5 +1,7 @@
 "use client";
 
+import ErrorState from "@/components/ErrorState/ErrorState";
+
 type Props = {
   error: Error;
   reset: () => void;
@@ -7,11 +9,11 @@ type Props = {
 
 const Error = ({ error, reset }: Props) => {
   return (
-    <div>
-      <h2>Could not fetch the list of notes.</h2>
-      <p>{error.message}</p>
-      <button onClick={reset}>Спробувати знову</button>
-    </div>
+    <ErrorState
+      message="Could not fetch this note."
+      details={error.message}
+      onRetry={reset}
+    />
   );
 };
 

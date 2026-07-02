@@ -2,13 +2,12 @@
 
 import css from "./SidebarNotes.module.css";
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-
-const TAGS = ["Work", "Personal", "Meeting", "Shopping", "Todo"] as const;
+import { usePathname } from "next/navigation";
+import { NOTE_TAGS } from "@/types/note";
 
 export default function SidebarNotes() {
-  const segment = useSelectedLayoutSegment();
-  const active = segment ?? "all";
+  const pathname = usePathname();
+  const active = getActiveFilter(pathname);
 
   return (
     <ul className={css.menuList}>
@@ -16,16 +15,20 @@ export default function SidebarNotes() {
         <Link
           href="/notes/filter/all"
           className={`${css.menuLink} ${active === "all" ? css.active : ""}`}
+          aria-current={active === "all" ? "page" : undefined}
         >
           All notes
         </Link>
       </li>
 
-      {TAGS.map((tag) => (
+      {NOTE_TAGS.map((tag) => (
         <li key={tag} className={css.menuItem}>
           <Link
             href={`/notes/filter/${tag}`}
-            className={`${css.menuLink} ${active === tag ? css.active : ""}`}
+            className={`${css.menuLink} ${
+              active === tag.toLowerCase() ? css.active : ""
+            }`}
+            aria-current={active === tag.toLowerCase() ? "page" : undefined}
           >
             {tag}
           </Link>
@@ -33,4 +36,11 @@ export default function SidebarNotes() {
       ))}
     </ul>
   );
+}
+
+function getActiveFilter(pathname: string) {
+  const segments = pathname.split("/").filter(Boolean);
+  const filter = segments[segments.length - 1] ?? "all";
+
+  return decodeURIComponent(filter).toLowerCase();
 }

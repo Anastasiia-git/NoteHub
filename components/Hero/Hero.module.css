@@ -1,5 +1,4 @@
 .hero {
-  max-width: 100%;
   position: relative;
   overflow: hidden;
   padding: 16px 12px;
@@ -12,32 +11,12 @@
   text-align: center;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 8% 22%,
-      rgba(107, 92, 255, 0.13),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 92% 34%,
-      rgba(18, 189, 178, 0.18),
-      transparent 32%
-    );
-}
-
 .heroContent {
   position: relative;
   z-index: 1;
-  align-self: center;
   width: 100%;
   min-width: 0;
-  max-width: 286px;
-  overflow: hidden;
+  max-width: 100%;
 }
 
 .label {
@@ -68,17 +47,17 @@
   background-clip: text;
   -webkit-background-clip: text;
   font-size: 42px;
-  line-height: 0.95;
+  line-height: 42px;
   font-weight: 900;
   text-shadow: 0 22px 40px rgba(20, 36, 86, 0.1);
 }
 
 .text {
-  max-width: 286px;
+  max-width: 310px;
   margin: 0 auto;
   color: var(--color-text);
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 24px;
   overflow-wrap: break-word;
 }
 
@@ -87,8 +66,11 @@
 }
 
 .actions {
-  max-width: 100%;
+  width: 100%;
+  max-width: 330px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -154,14 +136,13 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 286px;
+  max-width: 300px;
   min-height: 220px;
   overflow: hidden;
 }
 
 .heroImage {
   width: 100%;
-  /* max-width: 286px; */
   margin: 0 auto;
   height: auto;
   display: block;
@@ -206,9 +187,8 @@
   }
 
   .heroContent {
-    align-self: auto;
-    width: 50%;
-    max-width: 50%;
+    width: 44%;
+    max-width: 44%;
   }
 
   .label {
@@ -217,15 +197,20 @@
 
   .title {
     font-size: 48px;
+    line-height: 48px;
   }
 
   .text {
     max-width: 580px;
     font-size: 17px;
+    line-height: 26px;
   }
 
   .actions {
     width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
@@ -245,11 +230,6 @@
     min-height: 0;
   }
 
-  .heroContent {
-    width: 44%;
-    max-width: 44%;
-  }
-
   .heroImage {
     width: 100%;
     max-width: none;
@@ -265,5 +245,6 @@
 
   .title {
     font-size: 58px;
+    line-height: 58px;
   }
 }

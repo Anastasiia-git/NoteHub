@@ -29,9 +29,9 @@ export default function NoteDetailsClient() {
   };
 
   return (
-    <main className={css.main}>
-      <button className={css.cancelButton} onClick={handleGoBack}>
-        ← Back
+    <div className={css.main}>
+      <button type="button" className={css.cancelButton} onClick={handleGoBack}>
+        Back
       </button>
       <div className={css.container}>
         <div className={css.item}>
@@ -47,6 +47,6 @@ export default function NoteDetailsClient() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

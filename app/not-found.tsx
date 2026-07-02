@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import css from "./page.module.css";
+import css from "./not-found.module.css";
 
 export const metadata: Metadata = {
   title: "404 — Page Not Found | NoteHub",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className={css.wrapper}>
+    <div className={css.wrapper}>
       <h1 className={css.title}>404 - Page not found</h1>
       <p className={css.description}>
         Sorry, the page you are looking for does not exist.
@@ -42,6 +42,6 @@ export default function NotFound() {
       <Link href="/" className={css.button}>
         Return to home page
       </Link>
-    </main>
+    </div>
   );
 }

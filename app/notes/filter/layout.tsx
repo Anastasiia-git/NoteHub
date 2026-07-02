@@ -10,7 +10,7 @@ export default function FilterLayout({ children, sidebar }: Props) {
     <div className={styles.wrapper}>
       <div className={styles.grid}>
         <aside className={styles.sidebar}>{sidebar}</aside>
-        <main className={styles.main}>{children}</main>
+        <div className={styles.main}>{children}</div>
       </div>
     </div>
   );

@@ -1,0 +1,19 @@
+.spinner {
+  min-height: 320px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .spinner {
+    min-height: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spinner {
+    min-height: 520px;
+  }
+}

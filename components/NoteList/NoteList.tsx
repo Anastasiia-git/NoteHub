@@ -2,7 +2,9 @@
 
 import css from "./NoteList.module.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { Note } from "@/types/note";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import type { Note, NoteTag } from "@/types/note";
 import { deleteNote } from "@/lib/api";
 import Link from "next/link";
 import { Eye, Trash2 } from "lucide-react";
@@ -11,19 +13,37 @@ interface NoteListProps {
   notes: Note[];
 }
 
+const TAG_CLASS_NAMES: Record<NoteTag, string> = {
+  Todo: "tagTodo",
+  Work: "tagWork",
+  Personal: "tagPersonal",
+  Meeting: "tagMeeting",
+  Shopping: "tagShopping",
+};
+
 function NoteList({ notes }: NoteListProps) {
   const queryClient = useQueryClient();
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const deleteMutation = useMutation({
     mutationFn: deleteNote,
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
+      toast.success("Note deleted");
+    },
+    onError: () => {
+      toast.error("Failed to delete note");
+    },
+    onSettled: () => {
+      setDeletingId(null);
     },
   });
 
   const handleDelete = (id: string) => {
     if (!confirm("Delete this note?")) return;
+
+    setDeletingId(id);
     deleteMutation.mutate(id);
   };
 
@@ -48,9 +68,13 @@ function NoteList({ notes }: NoteListProps) {
             </Link>
             <button
               onClick={() => handleDelete(note.id)}
-              disabled={deleteMutation.isPending}
+              disabled={deletingId === note.id}
               className={css.button}
-              aria-label={`Delete ${note.title}`}
+              aria-label={
+                deletingId === note.id
+                  ? `Deleting ${note.title}`
+                  : `Delete ${note.title}`
+              }
             >
               <Trash2 size={17} aria-hidden="true" />
             </button>
@@ -71,13 +95,6 @@ function formatNoteDate(date: string) {
   }).format(new Date(date));
 }
 
-function getTagClassName(tag: string) {
-  const normalizedTag = tag.toLowerCase();
-
-  if (normalizedTag === "personal") return "tagPersonal";
-  if (normalizedTag === "meeting") return "tagMeeting";
-  if (normalizedTag === "shopping") return "tagShopping";
-  if (normalizedTag === "todo") return "tagTodo";
-
-  return "tagWork";
+function getTagClassName(tag: NoteTag) {
+  return TAG_CLASS_NAMES[tag];
 }

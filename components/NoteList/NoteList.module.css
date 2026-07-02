@@ -196,6 +196,12 @@
   transform: translateY(-1px);
 }
 
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .link:active,
 .button:active {
   transform: translateY(0.5px);

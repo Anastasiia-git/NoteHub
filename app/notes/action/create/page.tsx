@@ -39,12 +39,12 @@ export const metadata: Metadata = {
 
 function CreateNote() {
   return (
-    <main className={css.main}>
+    <div className={css.main}>
       <div className={css.container}>
-        <h1 className={css.title}>Create note +</h1>
+        <h1 className={css.title}>Create note</h1>
         <CreateNoteClient />
       </div>
-    </main>
+    </div>
   );
 }
 
