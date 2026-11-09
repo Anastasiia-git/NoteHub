@@ -1,4 +1,4 @@
-git # NoteHub
+# NoteHub
 
 NoteHub is a responsive note manager built with Next.js App Router, TypeScript, TanStack React Query, Zustand, Axios, and CSS Modules.
 
@@ -115,7 +115,7 @@ npm run lint
 npm run build
 ```
 
-The current version passes both checks.
+Run both checks against the current checkout before publishing; passing results depend on the code and environment used.
 
 ## Project Structure
 
